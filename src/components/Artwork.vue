@@ -48,16 +48,16 @@ export default {
           id: 'pixelsorted-image',
         },
         {
+          src: artwork.style_transferred_image,
+          id: 'style-transferred-image',
+        },
+        {
           src: artwork.style_image,
           id: 'style-image',
         },
         {
           src: artwork.colored_image,
           id: 'colored-image',
-        },
-        {
-          src: artwork.style_transferred_image,
-          id: 'style-transferred-image',
         },
         {
           src: artwork.visually_similar_image,
@@ -140,6 +140,7 @@ export default {
 }
 .final-image,
 .pixelsorted-image,
+.style-transferred-image,
 .input-image {
   width: 100%;
 }
