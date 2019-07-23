@@ -101,18 +101,17 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 .artwork > div {
   text-align: center;
   position: relative;
-  display: inline-block;
-  top: 50%;
-  transform: translateY(-50%);
 }
 .template {
-  max-width: 100%;
-  max-height: 100vh;
+  width: 100%;
 }
 .image-name {
   position: absolute;
@@ -139,16 +138,13 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.overlay-image {
-  max-width: 99%;
-  max-height: 99%;
-}
 .final-image,
+.pixelsorted-image,
 .input-image {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
 }
 img {
   opacity: 0;
+  max-width: 100%;
 }
 </style>

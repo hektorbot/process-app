@@ -75,14 +75,14 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:700&display=swap');
 
 body,
-html {
+html,
+#app {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
   font-family: 'IBM Plex Mono', monospace;
   word-break: break-all;
-}
-#app {
 }
 </style>
