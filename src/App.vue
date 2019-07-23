@@ -1,5 +1,8 @@
 <template>
-  <div id="app">
+  <div
+    id="app"
+    @click="onAppClicked"
+  >
     <transition
       :css="false"
       @enter="onArtworkEnter"
@@ -66,6 +69,14 @@ export default {
     },
     onArtworkRevealed() {
       this.unlockStack();
+    },
+    onAppClicked() {
+      const { $el } = this;
+      if ($el.requestFullscreen) {
+        $el.requestFullscreen();
+      } else if ($el.webkitRequestFullscreen) {
+        $el.webkitRequestFullscreen();
+      }
     },
   },
 };
