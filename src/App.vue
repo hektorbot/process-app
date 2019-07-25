@@ -94,6 +94,7 @@ html,
   padding: 0;
   overflow: hidden;
   font-family: 'IBM Plex Mono', monospace;
-  word-break: break-all;
+  word-break: break-word;
+  background-color: #dbefda;
 }
 </style>
