@@ -19,6 +19,12 @@
         :src="artwork.full"
         class="template"
       >
+      <div
+        ref="final-screen"
+        class="final-screen"
+      >
+        Création en cours
+      </div>
     </div>
   </div>
 </template>
@@ -74,17 +80,19 @@ export default {
     await Promise.all([sleep(process.env.VUE_APP_INITIAL_SLEEP), waitForImagesToLoad(this.$el)]);
     /* eslint-disable no-await-in-loop, no-restricted-syntax */
     for (const overlayImage of this.overlayImages) {
-      await this.revealImage(overlayImage.id);
+      await this.revealLayer(overlayImage.id);
       await sleep(process.env.VUE_APP_SLEEP_BETWEEN_STEPS);
     }
     /* eslint-enable no-await-in-loop, no-restricted-syntax */
-    await sleep(4000);
+    await sleep(5000);
     this.$emit('done');
+    await sleep(500);
+    await this.revealLayer('final-screen');
   },
   methods: {
-    revealImage(imageId) {
+    revealLayer(ref) {
       return anime({
-        targets: this.$refs[imageId],
+        targets: this.$refs[ref],
         opacity: [0, 1],
         duration: process.env.VUE_APP_IMAGES_TRANSITION_DURATION,
         easing: 'easeInOutQuad',
@@ -113,7 +121,8 @@ export default {
 .template {
   width: 100%;
 }
-.image-name {
+.image-name,
+.final-screen {
   position: absolute;
   top: 0;
   right: 0;
@@ -147,5 +156,8 @@ export default {
 img {
   opacity: 0;
   max-width: 100%;
+}
+.final-screen {
+  opacity: 0;
 }
 </style>
